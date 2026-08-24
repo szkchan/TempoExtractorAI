@@ -55,6 +55,15 @@ build_exe.bat
 
 サイズは madmom の学習済みモデル・scipy・matplotlib込みで約350MB程度になります。
 
+## GitHub Actionsによる自動ビルド
+
+`v*` 形式のタグをpushすると `.github/workflows/build-release.yml` がWindows/macOS両方を
+自動ビルドし、GitHub Releaseにzipを添付します（`workflow_dispatch`でタグ無しの手動実行も可能）。
+
+- macOSビルドは未署名(Apple Developer証明書での署名・公証なし)です。初回起動時に
+  Gatekeeperの警告が出るため、`.app`を右クリック→「開く」で許可するか、
+  `xattr -cr TempoExtractorAI.app` でquarantine属性を外してください。
+
 ## 動作確認用テストスクリプト
 
 ```bash
